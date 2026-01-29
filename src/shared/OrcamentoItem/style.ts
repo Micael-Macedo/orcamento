@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         borderRadius: 10,
-        borderColor: "#FAFAFA",
+        borderColor: DEFAULT_THEME.BORDER_COLOR,
         borderWidth: 1,
         gap: 12,
         padding: 16,

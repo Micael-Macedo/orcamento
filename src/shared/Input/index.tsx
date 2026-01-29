@@ -1,4 +1,5 @@
 import { TextInput, TextInputProps, View } from "react-native";
+import { style } from "./style";
 
 
 export interface InputProps extends TextInputProps {
@@ -7,7 +8,7 @@ export interface InputProps extends TextInputProps {
 
 export default function Input({ placeholder ,...rest} : InputProps) {
     return(
-        <TextInput placeholder={placeholder} {...rest} />
+        <TextInput style={style.container} placeholder={placeholder} {...rest} />
     )
 };
  
