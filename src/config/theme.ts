@@ -1,0 +1,5 @@
+export const DEFAULT_THEME = {
+    PRIMARY_COLOR: "#6A46EB",
+    BACKGROUND_COLOR: "#FFFFFF",
+    TEXT_COLOR: "#000000",
+}
