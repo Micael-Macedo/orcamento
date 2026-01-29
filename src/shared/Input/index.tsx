@@ -1,10 +1,13 @@
-import { TextInput } from "react-native";
+import { TextInput, TextInputProps, View } from "react-native";
 
 
+export interface InputProps extends TextInputProps {
+    placeholder: string
+}
 
-
-export default function Input() {
+export default function Input({ placeholder ,...rest} : InputProps) {
     return(
-        <TextInput />
+        <TextInput placeholder={placeholder} {...rest} />
     )
 };
+ 
