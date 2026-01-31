@@ -11,7 +11,9 @@ import { MaterialIcons } from "@expo/vector-icons";
 import Button from "@/shared/Button";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+import { StackRoutesProps } from "@/routes/StackRoutes";
+
+export default function Home({ navigation }: StackRoutesProps<'home'>) {
     const data: IOrcamento[] = [
         {
             client: "Soluções Tecnológicas Beta",
@@ -65,7 +67,7 @@ export default function Home() {
 
         const result = data
 
-        const filteredData = orcamentos.filter(orcamento => 
+        const filteredData = orcamentos.filter(orcamento =>
             orcamento.title.toLowerCase().includes(text.toLowerCase()) ||
             orcamento.client.toLowerCase().includes(text.toLowerCase())
         );
@@ -74,7 +76,7 @@ export default function Home() {
     }
 
     function handleNewOrcamento() {
-        
+        navigation.navigate("orcamento")
     }
 
     useEffect(() => {
@@ -88,7 +90,13 @@ export default function Home() {
 
     return (
         <View style={style.container}>
-            <Header totalDrafts={totalDrafts} />
+            <Header >
+                <View style={{ gap: 4 }}>
+                    <Text style={style.headerTitle}>Orçamentos</Text>
+                    <Text style={style.headerInfo}>Você tem {totalDrafts} item em rascunho</Text>
+                </View>
+                <Button iconName="add" label="Novo" type="primary" onPress={handleNewOrcamento} />
+            </Header>
             <View style={style.page}>
                 <View style={style.filterContainer}>
                     <View style={style.searchContainer}>

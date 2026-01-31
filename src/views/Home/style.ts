@@ -7,6 +7,15 @@ export const style = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-start"
     },
+    headerTitle: {
+        color: DEFAULT_THEME.PRIMARY_COLOR,
+        fontWeight: "bold",
+        fontSize: 18
+    },
+    headerInfo: {
+        color: DEFAULT_THEME.TEXT_SECONDARY_COLOR,
+        fontSize: 14
+    },
     page: {
         paddingHorizontal: 20,
         paddingVertical: 24,
