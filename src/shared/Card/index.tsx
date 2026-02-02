@@ -14,7 +14,7 @@ export type Props = {
 
 export default function Card({ title, iconName, children }: Props) {
     return (
-        <View>
+        <View style={style.container}>
             <View style={style.titleContainer}>
                 <MaterialIcons size={24} name={iconName} color={DEFAULT_THEME.PRIMARY_COLOR} />
                 <Text style={style.title}>{title}</Text>

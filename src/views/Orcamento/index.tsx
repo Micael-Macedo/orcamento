@@ -7,6 +7,7 @@ import Input from "@/shared/Input";
 import { IServiceItem } from "@/interfaces/serviceItem";
 import ServiceItem from "@/shared/ServiceItem";
 import { StackRoutesProps } from "@/routes/StackRoutes";
+import { style } from "./style";
 
 export default function Orcamento({ navigation }: StackRoutesProps<'orcamento'>) {
     const [servicos, setServicos] = useState<IServiceItem[]>([]);
@@ -18,11 +19,23 @@ export default function Orcamento({ navigation }: StackRoutesProps<'orcamento'>)
 
     }
 
+    function handleOpenService(service?: IServiceItem) {
+        if(!service) {
+            navigation.navigate('servico');
+            return;
+        }
+        navigation.navigate('servico', { id: service.id });
+    }
+
     return (
-        <View>
+        <View style={style.container}>
             <Card title="Informações gerais" iconName="store">
-                <Input placeholder="Titulo" />
-                <Input placeholder="Cliente" />
+                <Input
+                style={style.defaultInput}
+                placeholder="Titulo" />
+                <Input
+                style={style.defaultInput}
+                placeholder="Cliente" />
             </Card>
 
             <Card title="Status" iconName="discount">
@@ -35,11 +48,18 @@ export default function Orcamento({ navigation }: StackRoutesProps<'orcamento'>)
                     data={servicos}
                     keyExtractor={item => item.id}
                     renderItem={({ item }) => (
-                        <ServiceItem data={item} />
+                        <View>
+
+                            <ServiceItem data={item}/>
+                            <Button 
+                                type="secondary" 
+                                label="" 
+                                onPress={() =>handleOpenService(item)} />
+                        </View>
                     )}
                     ListEmptyComponent={() => <Text>Nenhum serviço encontrado</Text>}
                 />
-                <Button label="Adicionar serviço" type="secondary" />
+                <Button iconName="add" label="Adicionar serviço" type="secondary" onPress={() => handleOpenService()}  />
             </Card>
 
             <Card title="Investimento" iconName="credit-card">
@@ -53,7 +73,7 @@ export default function Orcamento({ navigation }: StackRoutesProps<'orcamento'>)
                 </View>
             </Card>
 
-            <View>
+            <View style={style.actions}>
                 <Button label="Cancelar" type="secondary" onPress={handleCancel} />
                 <Button label="Salvar" iconName="check" type="primary" onPress={handleSave} />
             </View>

@@ -18,7 +18,7 @@ export default function Button({ type, onPress, iconName, label, ...rest }: Butt
         <TouchableOpacity onPress={onPress} {...rest} style={ [typeButton, style.baseInput] }>
             <MaterialIcons name={iconName} size={24} color={colorButton} />
             {label.length > 0  && (
-                <Text style={{ color: colorButton }}>{label}</Text>
+                <Text style={{ color: colorButton, fontWeight:"bold" }}>{label}</Text>
             )}
         </TouchableOpacity>
     )

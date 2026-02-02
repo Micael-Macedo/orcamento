@@ -3,15 +3,17 @@ import { DEFAULT_THEME } from "../../config/theme";
 
 export const style = StyleSheet.create({
     container: {
-        borderBottomWidth: 1,
-        borderBottomColor: DEFAULT_THEME.BORDER_COLOR,
+        borderWidth: 1,
+        borderColor: DEFAULT_THEME.BORDER_COLOR,
         borderRadius: 12
     },
     titleContainer: {
         flexDirection: "row",
         gap: 8,
         paddingHorizontal: 16,
-        paddingVertical: 12 
+        paddingVertical: 12, 
+        borderBottomColor: DEFAULT_THEME.BORDER_COLOR,
+        borderBottomWidth: 1,
     },
     title: {
         color: DEFAULT_THEME.TEXT_SECONDARY_COLOR,
